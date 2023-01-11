@@ -1,0 +1,24 @@
+Theory -
+● What is Emmet?
+Abbreviations that give code snippets for HTML and CSSwith specific structure to ease the job of developer. Expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation
+
+● Difference between a Library and Framework?
+https://www.geeksforgeeks.org/software-framework-vs-library/
+
+● What is CDN? Why do we use it?
+
+● Why is React known as React?
+
+● What is crossorigin in script tag?
+
+● What is diference between React and ReactDOM
+
+● What is difference between react.development.js and react.production.js files via CDN?
+
+● What is async and defer?
+
+
+References
+1) https://bitbucket.org/namastedev/namaste-react-live/commits/928e6faee91549739adc0c3c97c8f0352a55607e
+2) https://www.youtube.com/watch?v=IrHmpdORLu8
+3) https://beta.reactjs.org/reference/react/createElement
