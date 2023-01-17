@@ -1,7 +1,13 @@
-const heading = React.createElement("h1", {
-    id:"title",
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+
+//document.createElement -JavaScript
+const heading = React.createElement("h1", { //props
+    id:"title", 
     className: "class",
-    style: ""
+    style: "",
+    hello: "word" //props can be anything
 }, "Namaste Everyone!"); //tag, object, what to put in the tag (type, props, children)
 
 const heading1 = React.createElement("h1", {

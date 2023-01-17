@@ -12,28 +12,28 @@
     <div id="root"> Not rendered. 
         <div id="title">Hello World!</div>
     </div>
+    <!--v2 Bundlers - webpack, parcel, vite
+         create react App uses webpack and babel-->
 
     <!-- <div id = "container">
         <h1>Heading1</h1>
         <h2>Heading2</h2>
     </div> -->
-<!--React library -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="App.js"> //writing the code after react is loaded.
+<!-- v1 React library 
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <script type="module" src="App.js"> //writing the code after react is loaded.
         
 
     </script>
 </body>
- <!--from Javascript-->
-<!-- <script> 
-
+<!-- v0 from Javascript 
+<script> 
     const heading = document.createElement("h1");
     heading.innerHTML = "Hello World!";
 
     const root = document.getElementById("root");
     root.appendChild(heading);
-    
 </script>  -->
 
 
