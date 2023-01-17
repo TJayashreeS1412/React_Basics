@@ -1,0 +1,5 @@
+{
+    //required to remove console.logs from production code with the babel(a package) plugin
+    // "plugins": [ ["transform-remove-console",
+    //  { "exclude": [ "error", "warn"] }] ]
+}

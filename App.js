@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+/**
+ * React reconcilation (keys to html tags)
+ * What is JSX -> uses React.createElement behind scenes-> object -> html code
+ * What is Functional component -> function which returns react element
+ */
 
 //document.createElement -JavaScript
 const heading = React.createElement("h1", { //props
@@ -12,9 +16,11 @@ const heading = React.createElement("h1", { //props
 
 const heading1 = React.createElement("h1", {
     id:"title",
-}, "Heading1"); 
+    key: "h1"
+}, "Heading1");  //adding key for identifying tags - reconcilation
 const heading2 = React.createElement("h2", {
     id:"title",
+    key:"h2"
 }, "Heading2"); 
 const container = React.createElement("div",{
     id: "container",
