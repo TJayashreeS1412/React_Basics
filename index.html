@@ -9,24 +9,34 @@
 </head>
 <body>
     <!-- <h1>Hello World!</h1>  from html-->
-    <div id="root"> Not rendered. 
-        <div id="title">Hello World!</div>
-    </div>
-    <!--v2 Bundlers - webpack, parcel, vite
-         create react App uses webpack and babel-->
 
     <!-- <div id = "container">
         <h1>Heading1</h1>
         <h2>Heading2</h2>
     </div> -->
-<!-- v1 React library 
-     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
-    <script type="module" src="App.js"> //writing the code after react is loaded.
-        
 
+    <div id="root">
+        <h1>Jay is here. Am I rendered?</h1>
+    </div>
+
+    <!-- v1 React library  -->
+     <script 
+        crossorigin 
+        src="https://unpkg.com/react@18/umd/react.development.js">
+        //core react library
+    </script>
+    <script 
+        crossorigin 
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+        // library to interact with dom (for browsers), for react-native we use a different one 
+    </script>
+    <!-- v2 Bundlers - webpack, parcel, vite, create react App uses webpack and babel-->
+    <script src="App.js"> 
+        //writing the code after react is loaded. 
+        //keep your react code before App.js as App.js uses react, changing the order throws an error
     </script>
 </body>
+
 <!-- v0 from Javascript 
 <script> 
     const heading = document.createElement("h1");
@@ -35,6 +45,4 @@
     const root = document.getElementById("root");
     root.appendChild(heading);
 </script>  -->
-
-
 </html>
