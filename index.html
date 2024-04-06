@@ -8,41 +8,11 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!-- <h1>Hello World!</h1>  from html-->
-
-    <!-- <div id = "container">
-        <h1>Heading1</h1>
-        <h2>Heading2</h2>
-    </div> -->
-
     <div id="root">
         <h1>Jay is here. Am I rendered?</h1>
     </div>
 
-    <!-- v1 React library  -->
-     <script 
-        crossorigin 
-        src="https://unpkg.com/react@18/umd/react.development.js">
-        //core react library
-    </script>
-    <script 
-        crossorigin 
-        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
-        // library to interact with dom (for browsers), for react-native we use a different one 
-    </script>
     <!-- v2 Bundlers - webpack, parcel, vite, create react App uses webpack and babel-->
-    <script src="App.js"> 
-        //writing the code after react is loaded. 
-        //keep your react code before App.js as App.js uses react, changing the order throws an error
-    </script>
+    <script src="App.js" type="module"></script>
 </body>
-
-<!-- v0 from Javascript 
-<script> 
-    const heading = document.createElement("h1");
-    heading.innerHTML = "Hello World!";
-
-    const root = document.getElementById("root");
-    root.appendChild(heading);
-</script>  -->
 </html>

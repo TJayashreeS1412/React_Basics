@@ -1,0 +1,99 @@
+⇒ private key and public key on git. ssh certificate
+
+⇒ To make code ready for production - minify/ bundle/ compress
+
+npm ⇒ manages packages and it is the standard repository for all the packages 
+
+=> creates package.json  and package-lock.json
+
+which manages the versions of the dependencies used.
+
+```jsx
+npm init
+```
+
+Bundlers (web pack, parcel, vite) ⇒ it packages or bundles our app to be ready to push to production.
+
+ex: create react-app uses webPack
+
+```jsx
+npm install -D parcel
+```
+
+=> 2 types of dependencies 
+ 1. devDependencies -D 
+ 2. normalDependencies(used in production as well)
+
+"react": "^18.2.0" ⇒ for dependencies in package.json it starts with caret or tilde. If we use caret, when there is a minor update, it automatically updates itself. If we use tilde, it updates the major version for the package. It is always better to have caret, as we need to know what updates are given for the latest major version before we install.
+
+package-lock.json keeps track of the exact version of the package used in our app whereas package.json keeps a approx version of it.
+
+** integrity with hash for each package in package-lock.json makes sure the same version is in production as in development
+
+parcel needs its own dependencies - transitive dependencies and each dependent package has its own package.json
+
+** we need not push node_modules to git as we can generate them by npm install from the package.json and package-lock.json(which needs to be pushed to git)
+
+```jsx
+npx parcel index.html(SOURCE_FILE)
+```
+
+npx is the command to execute 
+
+- parcel
+    
+    Dev Build
+    
+    Local Server
+    
+    HMR - Hot module replacement
+    
+    File watching algorithm in C++
+    
+    Caching - faster Builds
+    
+    Image optimization
+    
+    Magnification of files
+    
+    Bundling the files
+    
+    Compress … removes white spaces.
+    
+    Consistent Hashing
+    
+    Code Splitting
+    
+    Differential bundling - support older browsers
+    
+    Diagnostic
+    
+    Error handling
+    
+    Https
+    
+    Tree Shaking - remove unused code for you
+    
+    Different dev and prod bundles
+    
+    ```jsx
+    npx parcel build index.html  (remove "main":"App.js" from package.json)
+    ```
+    
+
+<aside>
+💡 CDN links is not the best way to bring react into our app. 1) we don’t want to make another network call to get react, it would be nice to have it as a package 2) keeping track of version is difficult.
+
+</aside>
+
+### **@parcel/transformer-js: Browser scripts cannot have imports or exports.**
+
+Solution app.js is type=module.
+
+```jsx
+  "browserslist": [
+    "last 2 chrome versions"  
+    //https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
+    //https://github.com/browserslist/browserslist#query-composition
+  ]
+```
