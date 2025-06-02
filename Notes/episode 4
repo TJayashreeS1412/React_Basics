@@ -1,0 +1,8 @@
+css 
+1) in the file
+2) inline as a javascript  object //css in javascript
+  style={styleCard} // not preferred. 
+
+  const styleCard = {
+    backgroundColor: "#f0f0f0";
+  }
