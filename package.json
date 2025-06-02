@@ -1,0 +1,32 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "description": "This is repo with all basics",
+  "homepage": "https://github.com/TJayashreeS1412/React_Basics#readme",
+  "bugs": {
+    "url": "https://github.com/TJayashreeS1412/React_Basics/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TJayashreeS1412/React_Basics.git"
+  },
+  "license": "ISC",
+  "author": "Jayashree Thota",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.2",
+    "process": "^0.11.10"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

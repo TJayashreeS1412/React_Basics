@@ -1,0 +1,16 @@
+- Two ways to import react into our project
+    
+    1) CDN links  https://legacy.reactjs.org/docs/cdn-links.html
+    2) webPack
+
+//create element
+const heading = React.createElement("h1", { 
+    id:"title", 
+    className: "class",
+    style: "",
+    hello: "word" //props are attributes to the tag
+}, "Namaste Everyone!"); //tag, object, what to put in the tag (type, props, children)
+//get the root
+const root = ReactDOM.createRoot(document.getElementById("root"));  //where I want the root to insert
+// put the element into the root
+root.render(heading);
