@@ -6,3 +6,5 @@ css
   const styleCard = {
     backgroundColor: "#f0f0f0";
   }
+
+// never use indexes as keys, as everytime a new index will be added, if order of items in the list changes,

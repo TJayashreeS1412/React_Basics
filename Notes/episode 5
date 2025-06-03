@@ -1,0 +1,8 @@
+// two types of export/import
+// 1) default - export default Name
+//               import Name from "";
+// 2) named - export Name //when we have multiple exports
+//             import {Name} from "";
+// we can have both in one file
+
+//
