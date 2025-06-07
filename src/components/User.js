@@ -1,7 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = ({ name, location }) => {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      console.log("TIMERRR ");
+    }, 1000);
+
+    // called before the component unmonts, perform clean up here.
+    return () => {
+      clearInterval(timer);
+    };
+  });
+
   return (
     <div className="user-card">
       <h4>Name:{name}</h4>
