@@ -14,6 +14,12 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
+  //if no dependency array, will be called on every component render, i.e, also when component is rerendered based on state changes.
+  useEffect(() => {
+    console.log("rendered everytime");
+  });
+
+  //if empty dependency array, will be called only on first or initial component render
   useEffect(() => {
     fetchData();
   }, []);

@@ -1,9 +1,25 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const Header = () => {
   let btnName = "Login";
   const [btnNameReact, setBtnNameReact] = useState("Login");
   console.log("header rendered");
+
+  //if no dependency array, will be called on initial render and every rerendered based on state changes.
+  useEffect(() => {
+    console.log("rendered everytime");
+  });
+
+  //if empty dependency array, will be called only on initial component render only
+  useEffect(() => {
+    console.log("rendered only once []");
+  }, []);
+
+  //if btnNameReact in dependency array, will be called on initial render and everytime btnNameReact is updated.
+  useEffect(() => {
+    console.log();
+  }, [btnNameReact]);
 
   return (
     <div className="header">
@@ -12,9 +28,17 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            {/* will not reload, super fast */}
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            {/* reloads the page */}
+            <a href="/contactUs">Contact Us</a>
+          </li>
           <li>Cart</li>
           <button
             className="login"
