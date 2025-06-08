@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withEasyLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+  const RestaurantCardEasy = withEasyLabel(RestaurantCard);
 
   //if no dependency array, will be called on every component render, i.e, also when component is rerendered based on state changes.
   useEffect(() => {
@@ -89,7 +90,12 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
           <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
-            <RestaurantCard resData={restaurant} />
+            {/* if the restaurant is promoted then add a promoted label to it */}
+            {restaurant.difficulty === "Easy" ? (
+              <RestaurantCardEasy resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
         {/* {RestaurantCard()} // cries if props are not passed and method epxects*/}
