@@ -7,17 +7,18 @@ const RestaurantCard = (props) => {
   console.log("RestaurantCard rendered");
 
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="m-2 p-2 w-56 bg-emerald-50 hover:bg-emerald-400 hover:scale-105 duration-300 rounded-lg">
       <img
-        className="res-img"
+        className="w-56 h-56 rounded-lg"
         src={CDN_URL + cloudinaryImageId}
         alt="res-img"
       />
-      <h3>name: {name} </h3>
-      <p>cuisine: {locality} </p>
-      <p>tags: {cuisines.join(", ")}</p>
-      <p>rating: {avgRating} stars</p>
-      <p>delivery time: {sla.deliveryTime} minutes</p>
+      <h3 className="font-bold mt-4">{name} </h3>
+      <p className=" text-sm mb-4">{locality} </p>
+      <p className="break-all text-sm py-1">{cuisines.join(", ")}</p>
+      <p className="text-sm py-1">
+        {avgRating}⭐️ ({sla.deliveryTime} minutes )
+      </p>
     </div>
   );
 };
