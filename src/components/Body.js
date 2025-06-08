@@ -91,7 +91,7 @@ const Body = () => {
             to={"/restaurants/" + restaurant.info.id}
           >
             {/* if the restaurant is promoted then add a promoted label to it */}
-            {restaurant.info.promoted ? (
+            {restaurant.info.veg ? (
               <RestaurantCardEasy resData={restaurant} />
             ) : (
               <RestaurantCard resData={restaurant} />

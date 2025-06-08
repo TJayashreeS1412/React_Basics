@@ -9,6 +9,8 @@ const RestaurantMenu = () => {
   const resInfo = useRestaurantInfo(resId);
   const [showIndex, setShowIndex] = useState(null);
 
+  const data = "dummyData";
+
   if (resInfo == null || Object.keys(resInfo).length === 0) {
     return <Shimmer />;
   }
@@ -32,7 +34,7 @@ const RestaurantMenu = () => {
         {" "}
         {cuisines.join(", ")} - {costForTwoMessage}
       </h3>
-      <h3 className="font-bold">Rating - {avgRating}</h3>
+      <h3 className="font-bold">Rating - {avgRating}⭐️</h3>
       {/* categories accordion */}
       {categories.map((category, index) => (
         <RestaurantCategory

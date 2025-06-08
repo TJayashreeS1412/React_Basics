@@ -31,7 +31,7 @@ export const withEasyLabel = (RestaurantCard) => {
     return (
       <div>
         <label className="absolute bg-green-950 text-white m-2 px-2 rounded-lg">
-          Easy
+          Vegeterian
         </label>
         <RestaurantCard {...props} />
       </div>
