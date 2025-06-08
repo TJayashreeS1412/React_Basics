@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 // set contract, input and output
-export default useRestaurantInfo = (resId) => {
+const useRestaurantInfo = (resId) => {
   const [resInfo, setResInfo] = useState({});
   useEffect(() => {
     fecthMenu();
@@ -16,3 +16,5 @@ export default useRestaurantInfo = (resId) => {
   };
   return resInfo;
 };
+
+export default useRestaurantInfo;
