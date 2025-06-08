@@ -28,13 +28,13 @@ const App = () => {
 
   return (
     // default value
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       {/* jayashree */}
       <div className="app">
-        <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}>
-          {/* elon musk */}
-          <Header />
-        </UserContext.Provider>
+        {/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}> */}
+        {/* elon musk */}
+        <Header />
+        {/* </UserContext.Provider> */}
         <Outlet />
         <Footer />
       </div>
