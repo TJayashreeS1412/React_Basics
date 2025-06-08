@@ -42,6 +42,9 @@ const Header = () => {
             {/* reloads the page */}
             <a href="/contactUs">Contact Us</a>
           </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
