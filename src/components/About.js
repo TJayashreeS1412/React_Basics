@@ -1,6 +1,7 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react";
+import UserContext from "../utils/UserContext";
 
 export default class About extends Component {
   constructor() {
@@ -38,7 +39,15 @@ export default class About extends Component {
 
     return (
       <div>
-        <h1>About</h1>
+        <h1>About Class Component</h1>
+        <div className="flex py-2">
+          loggedIn User:
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="font-bold px-2">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
         <h2> This page belongs to the user</h2>
         <p> parent count: {count}</p>
         <button onClick={() => this.setState({ count: count - 1 })}>-</button>

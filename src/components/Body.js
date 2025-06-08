@@ -36,7 +36,6 @@ const Body = () => {
   }, []);
 
   // whenever state variable update, it rerenders the component and its children. (reconciliation cycle)
-  console.log("body rendered");
 
   if (onlineStatus === false) {
     return (
