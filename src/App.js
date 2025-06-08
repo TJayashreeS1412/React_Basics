@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"; //refers to react inside our node modules.
+import React, { Suspense, useEffect, useState } from "react"; //refers to react inside our node modules.
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,20 +9,36 @@ import ErrorPage from "./components/ErrorPage";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Susp } from "react";
 import Demo from "./components/Demo";
+import UserContext from "./utils/UserContext";
 
 // chunking | code splitting | dynamic binding | lazy loading | on-demand loading
 const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const App = () => {
-  console.log("App rendered");
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    // API call to authenticate user
+    const data = {
+      name: "Jayashree Thota",
+    };
+    setUserName(data.name);
+  }, []);
 
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    // default value
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      {/* jayashree */}
+      <div className="app">
+        <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}>
+          {/* elon musk */}
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
