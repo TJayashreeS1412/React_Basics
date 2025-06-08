@@ -8,6 +8,7 @@ import ContactUs from "./components/ContactUs";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Susp } from "react";
+import Demo from "./components/Demo";
 
 // chunking | code splitting | dynamic binding | lazy loading | on-demand loading
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -43,6 +44,7 @@ root.render(
             </Suspense>
           }
         />
+        <Route path="/demo" element={<Demo />} />
       </Route>
     </Routes>
   </BrowserRouter>

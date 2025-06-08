@@ -1,3 +1,5 @@
+@import "tailwindcss";
+/* TODO: get rid of regular css and use tailwind */
 .header {
   display: flex;
   justify-content: space-between;
@@ -23,6 +25,11 @@
   padding: 10px;
 }
 
+.search-box {
+  border: 1px solid black;
+  margin: 10px;
+}
+
 .res-container {
   display: flex;
   flex-wrap: wrap;
@@ -30,7 +37,6 @@
 
 .res-card {
   width: 200px;
-  /* border: 1px solid black; */
   padding: 10px;
   margin: 5px;
   background-color: gainsboro;
@@ -69,7 +75,6 @@
 
 .shimmer-card {
   width: 200px;
-  /* border: 1px solid black; */
   padding: 10px;
   margin: 5px;
   height: 400px;
