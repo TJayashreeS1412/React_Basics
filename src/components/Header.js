@@ -6,22 +6,7 @@ const Header = () => {
   let btnName = "Login";
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  console.log("header rendered");
 
-  //if no dependency array, will be called on initial render and every rerendered based on state changes.
-  useEffect(() => {
-    console.log("rendered everytime");
-  });
-
-  //if empty dependency array, will be called only on initial component render only
-  useEffect(() => {
-    console.log("rendered only once []");
-  }, []);
-
-  //if btnNameReact in dependency array, will be called on initial render and everytime btnNameReact is updated.
-  useEffect(() => {
-    console.log();
-  }, [btnNameReact]);
   //flex space-between border border-solid border-black"
   return (
     <div className="header ">

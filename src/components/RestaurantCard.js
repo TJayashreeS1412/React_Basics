@@ -1,25 +1,23 @@
+import { CDN_URL } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const {
-    image,
-    name,
-    cuisine,
-    tags,
-    rating,
-    caloriesPerServing,
-    cookTimeMinutes,
-  } = resData;
+  const { cloudinaryImageId, name, locality, cuisines, avgRating, sla } =
+    resData?.info;
   console.log("RestaurantCard rendered");
 
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img className="res-img" src={image} alt="res-img" />
+      <img
+        className="res-img"
+        src={CDN_URL + cloudinaryImageId}
+        alt="res-img"
+      />
       <h3>name: {name} </h3>
-      <p>cuisine: {cuisine} </p>
-      <p>tags: {tags.join(", ")}</p>
-      <p>rating: {rating} stars</p>
-      <p>calories: {caloriesPerServing} per serving</p>
-      <p>cooking time: {cookTimeMinutes} minutes</p>
+      <p>cuisine: {locality} </p>
+      <p>tags: {cuisines.join(", ")}</p>
+      <p>rating: {avgRating} stars</p>
+      <p>delivery time: {sla.deliveryTime} minutes</p>
     </div>
   );
 };

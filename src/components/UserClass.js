@@ -13,17 +13,12 @@ export default class UserClass extends Component {
         avatar_url: "",
       },
     };
-    // console.log(this.props.name + "child constructor");
   }
 
   async componentDidMount() {
-    // console.log(this.props.name + "child component did mount");
-
-    // this.timer = setInterval(() => {
-    //   // continues to work even after we change page and when we return to this page
-    //   // it creates a new one and it would be hanging and will blow up your app
-    //   console.log(" NAMASTE REACT OP");
-    // }, 500);
+    this.timer = setInterval(() => {
+      console.log(" NAMASTE REACT OP");
+    }, 500);
     //API Call
     const data = await fetch("https://api.github.com/users/TJayashreeS1412");
     const json = await data.json();
@@ -34,33 +29,8 @@ export default class UserClass extends Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // whenevr state variable updates and after compoenent rerenders
-    // console.log(this.props.name + "child compoenent did update");
-    // // dependency props
-    // //use effect1
-    // if (
-    //   this.state.count !== prevState.count ||
-    //   this.state.count1 !== prevState.count1 // dependency array [] OR
-    // ) {
-    // }
-    // //use effect2
-    // if (this.state.count2 !== prevState.count2) {
-    // }
-  }
-
-  componentDidCatch() {
-    // console.log("child component did catch");
-  }
-
   componentWillUnmount() {
-    // called when we navigate to another page/component, first parent unmounts, then child unmounts
-    // console.log(
-    //   this.props.name + "child component will unmount",
-    //   performance.now()
-    // );
-    // this helps clean up this before we unmount or move away from this component
-    // clearInterval(this.timer);
+    clearInterval(this.timer);
   }
 
   render() {

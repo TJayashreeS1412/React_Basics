@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RES_URL } from "../utils/constants";
 
 const Body = () => {
   //local state variable - super powerful variable
@@ -16,27 +17,26 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   const RestaurantCardEasy = withEasyLabel(RestaurantCard);
 
-  //if no dependency array, will be called on every component render, i.e, also when component is rerendered based on state changes.
-  useEffect(() => {
-    console.log("rendered everytime");
-  });
-
   //if empty dependency array, will be called only on first or initial component render
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch(RES_URL); //fetch is given by browsers (JS Engine)
+      const json = await data.json();
+
+      setListOfRestaurants(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurants(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    };
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    const data = await fetch("https://dummyjson.com/recipes"); //fetch is given by browsers (JS Engine)
-    const json = await data.json();
-    console.log("json", json);
-
-    setListOfRestaurants(json.recipes);
-    setFilteredRestaurants(json.recipes);
-  };
   // whenever state variable update, it rerenders the component and its children. (reconciliation cycle)
   console.log("body rendered");
-  console.log("onlineStatus", onlineStatus);
 
   if (onlineStatus === false) {
     return (
@@ -60,12 +60,10 @@ const Body = () => {
         <button
           onClick={() => {
             //searchText
-            console.log("SearchText", searchText);
             //filter the restaurant cards and update UI
             const filteredList = listOfRestaurants.filter((res) =>
-              res.name.toLowerCase().includes(searchText.toLowerCase())
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            console.log("filteredList", filteredList);
             setFilteredRestaurants(filteredList);
           }}
         >
@@ -77,11 +75,10 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (restaurant) => restaurant.rating > 4
+              (restaurant) => res.info.avgRating > 4
             );
             // listOfRestaurants = filteredList;
             setFilteredRestaurants(filteredList);
-            console.log("listOfRestaurants", filteredList);
           }}
         >
           Top Rated Restaurants
@@ -89,9 +86,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
             {/* if the restaurant is promoted then add a promoted label to it */}
-            {restaurant.difficulty === "Easy" ? (
+            {restaurant.info.promoted ? (
               <RestaurantCardEasy resData={restaurant} />
             ) : (
               <RestaurantCard resData={restaurant} />
