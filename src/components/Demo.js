@@ -18,15 +18,15 @@ const Demo = () => {
         (isDarkTheme && "bg-gray-900 text-white")
       }
     >
-      <div>
+      <div className="text-center">
         <button
-          className="m-10 p-2 bg-green-200"
+          className="m-10 p-2 bg-green-600"
           onClick={() => setIsDarkTheme(!isDarkTheme)}
         >
           Toggle
         </button>
       </div>
-      <div>
+      <div className="text-center">
         <input
           className="border border-black w-72 px-2"
           type="number"
@@ -34,7 +34,7 @@ const Demo = () => {
           onChange={(event) => setText(event.target.value)}
         ></input>
       </div>
-      <h2 className="mt-4 font-bold text-xl">nth Prime: {prime}</h2>
+      <h2 className="mt-4 font-bold text-xl text-center">nth Prime: {prime}</h2>
     </div>
   );
 };

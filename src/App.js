@@ -7,8 +7,9 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import ContactUs from "./components/ContactUs";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy, Susp } from "react";
+import { lazy, Suspense } from "react";
 import Demo from "./components/Demo";
+import Demo2 from "./components/Demo2";
 import UserContext from "./utils/UserContext";
 
 // chunking | code splitting | dynamic binding | lazy loading | on-demand loading
@@ -49,7 +50,14 @@ root.render(
       <Route path="*" element={<ErrorPage />} />
       <Route path="/" element={<App />}>
         <Route path="/" element={<Body />} />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<h1>Loading....</h1>}>
+              <About />
+            </Suspense>
+          }
+        />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/restaurants/:resId" element={<RestaurantMenu />} />
         <Route
@@ -60,7 +68,15 @@ root.render(
             </Suspense>
           }
         />
-        <Route path="/demo" element={<Demo />} />
+        <Route
+          path="/demo"
+          element={
+            <div className="flex">
+              <Demo />
+              <Demo2 />
+            </div>
+          }
+        />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -33,6 +33,9 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
+          <li>
+            <Link to="/demo">Demo</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
