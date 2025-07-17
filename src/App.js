@@ -11,6 +11,8 @@ import { lazy, Suspense } from "react";
 import Demo from "./components/Demo";
 import Demo2 from "./components/Demo2";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 // chunking | code splitting | dynamic binding | lazy loading | on-demand loading
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -29,17 +31,19 @@ const App = () => {
 
   return (
     // default value
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      {/* jayashree */}
-      <div className="app">
-        {/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}> */}
-        {/* elon musk */}
-        <Header />
-        {/* </UserContext.Provider> */}
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        {/* jayashree */}
+        <div className="app">
+          {/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}> */}
+          {/* elon musk */}
+          <Header />
+          {/* </UserContext.Provider> */}
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
