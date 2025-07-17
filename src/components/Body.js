@@ -24,6 +24,10 @@ const Body = () => {
     const fetchData = async () => {
       const data = await fetch(RES_URL); //fetch is given by browsers (JS Engine)
       const json = await data.json();
+      console.log(
+        "json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants",
+        json
+      );
 
       setListOfRestaurants(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -47,7 +51,7 @@ const Body = () => {
     );
   }
   //Codnitional Rendering
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -98,7 +102,7 @@ const Body = () => {
         </div>
       </div>
       <div className="res-container">
-        {filteredRestaurants.map((restaurant) => (
+        {filteredRestaurants?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
