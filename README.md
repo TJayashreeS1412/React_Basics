@@ -114,3 +114,17 @@ componentWillUnmount() {
 - create a cart slice
 - dispatch an action
 - Selector
+
+#redux
+(vanilla js version) - says DON'T MUTATE STATE and returning state is mandatory
+old style
+(state, action) => {
+// cannot mutate state
+const newState = [...state]
+newState.items.push(action.payload);
+return newState;
+},
+// with redux toolkit, we can directly mutate state and redux manages state behind the scenes. It uses Immer library to get state changes.
+// in new style, we need to mutate state
+state = { items: [] }; //doesn't work as it doesn't mutate state and will only change value locally
+state.items.length = 0;

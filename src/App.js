@@ -13,6 +13,7 @@ import Demo2 from "./components/Demo2";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // chunking | code splitting | dynamic binding | lazy loading | on-demand loading
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -81,6 +82,7 @@ root.render(
             </div>
           }
         />
+        <Route path="/cart" element={<Cart />} />
       </Route>
     </Routes>
   </BrowserRouter>
