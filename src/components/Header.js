@@ -18,10 +18,13 @@ const Header = () => {
   //flex space-between border border-solid border-black"
   return (
     <div className="header ">
-      <div className="logo-container">
-        <img className="w-[150px]" src={LOGO_URL} />
+      <div className="logo-container pl-4">
+        <img className="w-[100px] h-[70px]" src={LOGO_URL} />
+        <p className="font-italic text-center text-green-900 font-extrabold pl-2">
+          SnackRush
+        </p>
       </div>
-      <div className="nav-items">
+      <div className="nav-items align-middle">
         <ul>
           <li>Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>

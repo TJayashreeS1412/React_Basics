@@ -9,7 +9,9 @@ const useRestaurantInfo = (resId) => {
   useEffect(() => {
     const fecthMenu = async () => {
       const data = await fetch(RES_MENU_URL + resId);
-      const json = await data.json();
+      console.log("data", data);
+
+      const json = await data;
       setResInfo(json.data);
     };
     fecthMenu();
