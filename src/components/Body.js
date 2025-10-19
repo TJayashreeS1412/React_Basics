@@ -82,7 +82,7 @@ const Body = () => {
             className=" bg-black border-1 p-1 px-2 text-white rounded-xl cursor-pointer"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (restaurant) => restaurant.info.avgRating > 4
+                (restaurant) => restaurant.info.avgRating > 4.5
               );
               // listOfRestaurants = filteredList;
               setFilteredRestaurants(filteredList);
@@ -109,9 +109,9 @@ const Body = () => {
           >
             {/* if the restaurant is promoted then add a promoted label to it */}
             {restaurant.info.veg ? (
-              <RestaurantCardEasy resData={restaurant} />
+              <RestaurantCardEasy resData={restaurant.info} />
             ) : (
-              <RestaurantCard resData={restaurant} />
+              <RestaurantCard resData={restaurant.info} />
             )}
           </Link>
         ))}
